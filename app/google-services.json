@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "48823772838",
+    "firebase_url": "https://easypromo-20120.firebaseio.com",
+    "project_id": "easypromo-20120",
+    "storage_bucket": "easypromo-20120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48823772838:android:7f75e1408f89bec9",
+        "android_client_info": {
+          "package_name": "easypromo.com.easypromo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48823772838-vhr18flj7e1qik8pbthqjmu2hhec0jhu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "easypromo.com.easypromo",
+            "certificate_hash": "ef3923cdf84190868eab2beb14b861b0ad93e146"
+          }
+        },
+        {
+          "client_id": "48823772838-0dairi9f4alchimr5a6e3jjeqqfu7943.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAICgSb3k2zQtpJMhoyFfeTtPnxVCwURg8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48823772838-0dairi9f4alchimr5a6e3jjeqqfu7943.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

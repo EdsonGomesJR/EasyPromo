@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EasyPromo</string>
+    <string name="texto_btEntrar">Entrar</string>
+    <string name="texto_txtCadastrar">Cadastre-se!</string>
+    <string name="texto_btRegistrar">Cadastrar</string>
+    <string name="hint_etEmail">Digite seu email...</string>
+    <string name="hint_etSenha">Digite sua senha...</string>
+    <string name="texto_cbConectado">Me manter conectado</string>
+    <string name="hint_etNome">Digite seu nome...</string>
+    <string name="hint_etConfirmaSenha">Confirme sua senha...</string>
+</resources>
