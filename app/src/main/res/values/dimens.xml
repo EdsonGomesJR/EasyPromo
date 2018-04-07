@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="texto_rodape">16sp</dimen>
+    <dimen name="banner_width">230dp</dimen>
+    <dimen name="banner_height">201dp</dimen>
 </resources>

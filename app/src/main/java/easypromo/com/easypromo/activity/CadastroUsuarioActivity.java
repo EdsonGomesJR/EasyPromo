@@ -13,6 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 import easypromo.com.easypromo.R;
@@ -21,10 +24,10 @@ import easypromo.com.easypromo.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
-    private EditText etNome;
-    private EditText etEmail;
-    private EditText etSenha;
-    private EditText etConfirmaSenha;
+    private EditText nome;
+    private EditText email;
+    private EditText senha;
+    private EditText confirmaSenha;
     private Button btCadastrar;
 
     private Usuario usuario;
@@ -35,42 +38,59 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
 
-        etNome = findViewById(R.id.etNome);
-        etEmail = findViewById(R.id.etEmail);
-        etSenha = findViewById(R.id.etSenha);
-        etConfirmaSenha = findViewById(R.id.etConfirmaSenha);
+        nome = findViewById(R.id.etNome);
+        email = findViewById(R.id.etEmail);
+        senha = findViewById(R.id.etSenha);
+        confirmaSenha = findViewById(R.id.etConfirmaSenha);
+
+        limparCampos();
 
         btCadastrar = findViewById(R.id.btCadastrar);
         btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (!validaSenha()) return;
+                if (!verificarPreenchimento()) return;
+                if (!confirmarSenha()) return;
                 setAtributos();
                 cadastrarUsuario();
             }
         });
     }
 
-    private boolean validaSenha(){
+    private void limparCampos(){
+        nome.setText("");
+        email.setText("");
+        senha.setText("");
+        confirmaSenha.setText("");
+    }
 
-        if (etSenha.getText().toString().equals(etConfirmaSenha.getText().toString())) return true;
+    private boolean verificarPreenchimento(){
+        if (!nome.getText().toString().isEmpty() &&
+                !email.getText().toString().isEmpty() &&
+                !senha.getText().toString().isEmpty()) return true;
 
         Toast.makeText(CadastroUsuarioActivity.this,
-                "Senha de confirmação inválida", Toast.LENGTH_SHORT).show();
+                getString(R.string.errorFillAllFields), Toast.LENGTH_SHORT).show();
+        return false;
+    }
+
+    private boolean confirmarSenha(){
+        if (senha.getText().toString().equals(confirmaSenha.getText().toString())) return true;
+
+        Toast.makeText(CadastroUsuarioActivity.this,
+                getString(R.string.userError_WrongConfirmPass), Toast.LENGTH_SHORT).show();
         return false;
     }
 
     private void setAtributos(){
-
         usuario = new Usuario();
-        usuario.setNome(etNome.getText().toString());
-        usuario.setEmail(etEmail.getText().toString());
-        usuario.setSenha(etSenha.getText().toString());
+        usuario.setNome(nome.getText().toString());
+        usuario.setEmail(email.getText().toString());
+        usuario.setSenha(senha.getText().toString());
     }
 
     private void cadastrarUsuario(){
-
         autenticacao = AcessoDatabase.getAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
                 usuario.getEmail(),
@@ -86,10 +106,33 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                     FirebaseUser usuarioFireBase = task.getResult().getUser();
                     usuario.setId(usuarioFireBase.getUid());
                     usuario.cadastrar();
+
+                    autenticacao.signOut();
+                    finish();
                 }
                 else{
+
+                    String erroExcecao = "";
+
+                    try{
+                        throw task.getException();
+
+                    } catch (FirebaseAuthWeakPasswordException e){
+                        erroExcecao = getString(R.string.userException_WeakPassword);
+
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        erroExcecao = getString(R.string.userException_InvalidCredentials);
+
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        erroExcecao = getString(R.string.userException_UserCollision);
+
+                    } catch (Exception e) {
+                        erroExcecao = getString(R.string.userException_Default);
+                        e.printStackTrace();
+                    }
+
                     Toast.makeText(CadastroUsuarioActivity.this,
-                            "Erro ao cadastrar usuário", Toast.LENGTH_SHORT).show();
+                            erroExcecao, Toast.LENGTH_SHORT).show();
                 }
             }
         });

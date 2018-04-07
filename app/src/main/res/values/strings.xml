@@ -1,11 +1,32 @@
 <resources>
+    <!-- Configuração do aplicativo -->
     <string name="app_name">EasyPromo</string>
+
+    <!-- Textos de views -->
     <string name="texto_btEntrar">Entrar</string>
     <string name="texto_txtCadastrar">Cadastre-se!</string>
     <string name="texto_btRegistrar">Cadastrar</string>
+
+    <!-- Hints de EditTexts -->
     <string name="hint_etEmail">Digite seu email...</string>
     <string name="hint_etSenha">Digite sua senha...</string>
-    <string name="texto_cbConectado">Me manter conectado</string>
     <string name="hint_etNome">Digite seu nome...</string>
     <string name="hint_etConfirmaSenha">Confirme sua senha...</string>
+
+    <!-- Erros genéricos -->
+    <string name="errorFillAllFields">Preencha todos os campos</string>
+
+    <!-- Erros de usuário -->
+    <string name="userError_WrongConfirmPass">Senha de confirmação inválida</string>
+
+    <!-- Exceções de usuário -->
+    <string name="userException_WeakPassword">Digite uma senha mais forte, contendo mais que 6 caracteres</string>
+    <string name="userException_InvalidCredentials">O e-mail informado é inválido</string>
+    <string name="userException_UserCollision">E-mail em uso por um usuário</string>
+    <string name="userException_Default">Erro ao cadastrar usuário. Tente novamente</string>
+
+    <!-- Exceções de login -->
+    <string name="loginException_InvalidUser">E-mail informado não é cadastrado</string>
+    <string name="loginException_InvalidCredentials">Senha informada está errada</string>
+    <string name="loginException_Default">Erro ao cadastrar usuário. Tente novamente</string>
 </resources>
