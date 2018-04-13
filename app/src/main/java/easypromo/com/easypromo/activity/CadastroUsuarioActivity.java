@@ -84,10 +84,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     }
 
     private void setAtributos(){
-        usuario = new Usuario();
-        usuario.setNome(nome.getText().toString());
-        usuario.setEmail(email.getText().toString());
-        usuario.setSenha(senha.getText().toString());
+        usuario = new Usuario(
+                nome.getText().toString(),
+                email.getText().toString(),
+                senha.getText().toString(),
+                "");
     }
 
     private void cadastrarUsuario(){
@@ -104,8 +105,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                             "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
                     FirebaseUser usuarioFireBase = task.getResult().getUser();
-                    usuario.setId(usuarioFireBase.getUid());
-                    usuario.cadastrar();
+                    usuario.cadastrar(usuarioFireBase.getUid());
 
                     autenticacao.signOut();
                     finish();

@@ -7,6 +7,9 @@
     <string name="texto_txtCadastrar">Cadastre-se!</string>
     <string name="texto_btRegistrar">Cadastrar</string>
 
+    <!-- Textos de menus -->
+    <string name="texto_toolbar">EasyPromo</string>
+
     <!-- Hints de EditTexts -->
     <string name="hint_etEmail">Digite seu email...</string>
     <string name="hint_etSenha">Digite sua senha...</string>

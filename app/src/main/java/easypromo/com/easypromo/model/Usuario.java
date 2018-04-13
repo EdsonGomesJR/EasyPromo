@@ -12,13 +12,23 @@ public class Usuario {
     private String email;
     private String senha;
     private String dataCadastro;
+    private String perfilAdmin; // (1) Admin - (0) Padrão
 
-    public Usuario(){
-
+    public Usuario(String nome, String email, String senha, String perfilAdmin) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.dataCadastro = Utilidades.getHoraAtual();
+        this.perfilAdmin = (perfilAdmin.isEmpty()) ? "0" : "1";
     }
 
-    public void cadastrar(){
+    public Usuario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
 
+    public void cadastrar(String id){
+        setId(id);
         DatabaseReference dbReferencia = AcessoDatabase.getReferencia();
         dbReferencia.child("usuarios").child(getId()).setValue(this);
     }
@@ -28,28 +38,35 @@ public class Usuario {
         return id;
     }
 
-    public void setId(String id) { this.id = id; }
+    private void setId(String id) { this.id = id; }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    private void setNome(String nome) {
         this.nome = nome;
     }
 
+    @Exclude
     public String getEmail() { return email; }
 
-    public void setEmail(String email) {
+    private void setEmail(String email) {
         this.email = email;
     }
 
     @Exclude
     public String getSenha() { return senha; }
 
-    public void setSenha(String senha) {
+    private void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public String getDataCadastro() { return Utilidades.getHoraAtual(); }
+    public String getDataCadastro() { return dataCadastro; }
+
+    private void setDataCadastro() { this.dataCadastro = dataCadastro; }
+
+    public String getTipoPerfil() { return perfilAdmin; }
+
+    private void setTipoPerfil(String perfilAdmin) { this.perfilAdmin = perfilAdmin; }
 }

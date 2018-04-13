@@ -30,14 +30,20 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth autenticacao;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        limparTela();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        recuperarUsuarioLogado();
+
         email = findViewById(R.id.etEmail);
         senha = findViewById(R.id.etSenha);
-
-        limparCampos();
 
         btEntrar = findViewById(R.id.btEntrar);
         btEntrar.setOnClickListener(new View.OnClickListener() {
@@ -46,12 +52,17 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!verificarPreenchimento()) return;
 
-                usuario = new Usuario();
-                usuario.setEmail(email.getText().toString());
-                usuario.setSenha(senha.getText().toString());
+                usuario = new Usuario(
+                        email.getText().toString(),
+                        senha.getText().toString());
                 validarLogin();
             }
         });
+    }
+
+    private void recuperarUsuarioLogado(){
+        autenticacao = AcessoDatabase.getAutenticacao();
+        if (autenticacao.getCurrentUser() != null) abrirTelaPrincipal();
     }
 
     public void abrirCadastroUsuario(View view){
@@ -96,9 +107,10 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void limparCampos(){
+    private void limparTela(){
         email.setText("");
         senha.setText("");
+        email.requestFocus();
     }
 
     private boolean verificarPreenchimento(){
