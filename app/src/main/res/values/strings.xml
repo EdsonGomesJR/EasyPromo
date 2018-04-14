@@ -7,8 +7,13 @@
     <string name="texto_txtCadastrar">Cadastre-se!</string>
     <string name="texto_btRegistrar">Cadastrar</string>
 
-    <!-- Textos de menus -->
+    <!-- Textos de toolbars -->
     <string name="texto_toolbar">EasyPromo</string>
+    <string name="texto_toolbar_admin">EasyPromo</string>
+
+    <!-- Textos de fragments -->
+    <string name="fragment_admin_promocao">PROMOÇÕES</string>
+    <string name="fragment_admin_usuario">USUÁRIOS</string>
 
     <!-- Hints de EditTexts -->
     <string name="hint_etEmail">Digite seu email...</string>
@@ -32,4 +37,7 @@
     <string name="loginException_InvalidUser">E-mail informado não é cadastrado</string>
     <string name="loginException_InvalidCredentials">Senha informada está errada</string>
     <string name="loginException_Default">Erro ao cadastrar usuário. Tente novamente</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

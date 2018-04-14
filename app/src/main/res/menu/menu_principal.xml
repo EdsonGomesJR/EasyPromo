@@ -8,6 +8,12 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_search"/>
 
+    <item android:id="@+id/item_admin"
+        android:title="Sair"
+        android:orderInCategory="150"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_admin"/>
+
     <item android:id="@+id/item_sair"
         android:title="Sair"
         android:orderInCategory="200"

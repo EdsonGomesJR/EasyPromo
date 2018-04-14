@@ -73,6 +73,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:onClick="abrirCadastroUsuario"
+        android:theme="@style/TextViewTheme"
         android:text="@string/texto_txtCadastrar"
         android:textSize="@dimen/texto_rodape"
         app:layout_constraintEnd_toEndOf="parent"

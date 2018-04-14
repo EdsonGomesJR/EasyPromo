@@ -7,13 +7,15 @@
         <item name="colorAccent">@color/primaryLightColor</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:itemBackground">@color/backgroundColor</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
     
     <style name="ButtonTheme" parent="Theme.AppCompat.Light">
     </style>
 
     <style name="EditTextTheme" parent="Theme.AppCompat.Light">
+    </style>
+
+    <style name="TextViewTheme" parent="Theme.AppCompat.Light">
     </style>
 
 </resources>

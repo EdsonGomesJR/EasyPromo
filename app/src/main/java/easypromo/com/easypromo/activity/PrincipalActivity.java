@@ -44,6 +44,9 @@ public class PrincipalActivity extends AppCompatActivity {
             case R.id.item_pesquisar:
                 Toast.makeText(PrincipalActivity.this, "Pesquisar", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.item_admin:
+                abrirTelaAdmin();
+                return true;
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
@@ -59,5 +62,10 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void abrirTelaAdmin(){
+        Intent intent = new Intent(PrincipalActivity.this, AdminActivity.class);
+        startActivity(intent);
     }
 }
