@@ -2,17 +2,24 @@ package easypromo.com.easypromo.model;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
+
 import easypromo.com.easypromo.config.AcessoDatabase;
+import easypromo.com.easypromo.helper.Base64Custom;
 import easypromo.com.easypromo.helper.Utilidades;
 
 public class Usuario {
 
+    // region Attributes
     private String id;
     private String nome;
     private String email;
     private String senha;
     private String dataCadastro;
     private String perfilAdmin; // (1) Admin - (0) Padrão
+    // endregion
+
+    // region Constructors
+    public Usuario(){}
 
     public Usuario(String nome, String email, String senha, String perfilAdmin) {
         this.nome = nome;
@@ -26,13 +33,17 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
     }
+    // endregion
 
+    // region Methods
     public void cadastrar(String id){
         setId(id);
         DatabaseReference dbReferencia = AcessoDatabase.getReferencia();
         dbReferencia.child("usuarios").child(getId()).setValue(this);
     }
+    // endregion
 
+    // region Getters & Setters
     @Exclude
     public String getId() {
         return id;
@@ -48,7 +59,6 @@ public class Usuario {
         this.nome = nome;
     }
 
-    @Exclude
     public String getEmail() { return email; }
 
     private void setEmail(String email) {
@@ -69,4 +79,5 @@ public class Usuario {
     public String getTipoPerfil() { return perfilAdmin; }
 
     private void setTipoPerfil(String perfilAdmin) { this.perfilAdmin = perfilAdmin; }
+    // endregion
 }

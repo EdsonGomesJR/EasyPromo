@@ -1,13 +1,17 @@
 package easypromo.com.easypromo.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -42,7 +46,7 @@ public class PrincipalActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_pesquisar:
-                Toast.makeText(PrincipalActivity.this, "Pesquisar", Toast.LENGTH_SHORT).show();
+                abrirPesquisaPromocao();
                 return true;
             case R.id.item_admin:
                 abrirTelaAdmin();
@@ -67,5 +71,44 @@ public class PrincipalActivity extends AppCompatActivity {
     private void abrirTelaAdmin(){
         Intent intent = new Intent(PrincipalActivity.this, AdminActivity.class);
         startActivity(intent);
+    }
+
+    private void abrirPesquisaPromocao(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(PrincipalActivity.this,
+                R.style.AlertDialogTheme);
+
+        alertDialog.setIcon(R.drawable.ic_search);
+        alertDialog.setTitle("Pesquisar promoção");
+        alertDialog.setMessage("Informe palavras-chave para pesquisar");
+        alertDialog.setCancelable(false);
+
+        final EditText etPesqPromo = new EditText(PrincipalActivity.this);
+        etPesqPromo.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        alertDialog.setView(etPesqPromo);
+
+        alertDialog.setPositiveButton("Pesquisar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String pesquisaPromocao = etPesqPromo.getText().toString();
+
+                if (pesquisaPromocao.isEmpty()){
+                    Toast.makeText(PrincipalActivity.this, "Pesquisa sem informações", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    // FALTA IMPLEMENTAR
+                }
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        alertDialog.create();
+        alertDialog.show();
     }
 }

@@ -7,11 +7,179 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="100dp"
-        android:theme="@style/TextViewTheme"
-        android:text="@string/fragment_admin_usuario" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etEmailUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="05dp"
+            android:layout_marginStart="05dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Digite o e-mail do usuário..."
+            android:inputType="textEmailAddress"
+            android:textColorLink="@color/primaryColor"
+            android:theme="@style/Base.Theme.AppCompat.Light" />
+
+        <Button
+            android:id="@+id/btProcurarUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etEmailUsuario"
+            android:text="Procurar"
+            android:theme="@style/ButtonTheme" />
+
+        <ScrollView
+            android:id="@+id/svResultadoPesquisa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btProcurarUsuario"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/etEmailUsuario"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Nome:"
+                    android:textColor="@color/primaryTextColor" />
+
+                <TextView
+                    android:id="@+id/txtNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/primaryTextColor" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/txtEmail"
+                    android:layout_alignStart="@+id/etEmailUsuario"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="E-mail:"
+                    android:textColor="@color/primaryTextColor" />
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="0dp"
+                    android:textColor="@color/primaryTextColor" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/etEmailUsuario"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Data de cadastro:"
+                    android:textColor="@color/primaryTextColor" />
+
+                <TextView
+                    android:id="@+id/txtData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/primaryTextColor" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@+id/etEmailUsuario"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Perfil:"
+                    android:textColor="@color/primaryTextColor" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/textView6"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="0dp">
+
+                    <RadioButton
+                        android:id="@+id/rbPerfilUsuario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Usuário"
+                        android:textColor="@color/primaryTextColor"
+                        android:textColorLink="@color/primaryColor"
+                        android:theme="@style/RadioButtonTheme" />
+
+                    <RadioButton
+                        android:id="@+id/rbPerfilAdmin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Administrador"
+                        android:textColor="@color/primaryTextColor"
+                        android:textColorLink="@color/primaryColor"
+                        android:theme="@style/RadioButtonTheme" />
+
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/btSalvar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Salvar"
+                    android:theme="@style/ButtonTheme" />
+
+                <Button
+                    android:id="@+id/btExcluir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:text="Excluir"
+                    android:theme="@style/ButtonTheme" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
 </FrameLayout>

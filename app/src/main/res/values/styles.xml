@@ -18,4 +18,11 @@
     <style name="TextViewTheme" parent="Theme.AppCompat.Light">
     </style>
 
+    <style name="RadioButtonTheme" parent="Theme.AppCompat.Light">
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/primaryColor</item>
+    </style>
+
 </resources>

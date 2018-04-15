@@ -18,16 +18,19 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
+import easypromo.com.easypromo.helper.Utilidades;
 import easypromo.com.easypromo.model.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
 
+    // region Variáveis
     private EditText email;
     private EditText senha;
     private Button btEntrar;
 
     private Usuario usuario;
     private FirebaseAuth autenticacao;
+    // endregion
 
     @Override
     protected void onResume() {
@@ -42,13 +45,15 @@ public class LoginActivity extends AppCompatActivity {
 
         recuperarUsuarioLogado();
 
-        email = findViewById(R.id.etEmail);
+        email = findViewById(R.id.etEmailUsuario);
         senha = findViewById(R.id.etSenha);
 
         btEntrar = findViewById(R.id.btEntrar);
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Utilidades.hideKeyboard(LoginActivity.this, v);
 
                 if (!verificarPreenchimento()) return;
 

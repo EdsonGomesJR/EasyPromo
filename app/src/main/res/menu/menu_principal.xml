@@ -5,19 +5,19 @@
     <item android:id="@+id/item_pesquisar"
         android:title="Pesquisar"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_search"/>
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/item_admin"
-        android:title="Sair"
+        android:title="Administração"
         android:orderInCategory="150"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_admin"/>
+        android:icon="@drawable/ic_admin"
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/item_sair"
         android:title="Sair"
         android:orderInCategory="200"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_exit"/>
+        android:icon="@drawable/ic_exit"
+        app:showAsAction="ifRoom" />
 
 </menu>

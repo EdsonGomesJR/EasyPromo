@@ -1,11 +1,11 @@
 package easypromo.com.easypromo.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,10 +20,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
+import easypromo.com.easypromo.helper.Base64Custom;
+import easypromo.com.easypromo.helper.Utilidades;
 import easypromo.com.easypromo.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
+    // region Variáveis
     private EditText nome;
     private EditText email;
     private EditText senha;
@@ -32,6 +35,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
     private Usuario usuario;
     private FirebaseAuth autenticacao;
+    // endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_usuario);
 
         nome = findViewById(R.id.etNome);
-        email = findViewById(R.id.etEmail);
+        email = findViewById(R.id.etEmailUsuario);
         senha = findViewById(R.id.etSenha);
         confirmaSenha = findViewById(R.id.etConfirmaSenha);
 
@@ -50,6 +54,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Utilidades.hideKeyboard(CadastroUsuarioActivity.this, v);
                 if (!verificarPreenchimento()) return;
                 if (!confirmarSenha()) return;
                 setAtributos();
@@ -101,14 +106,12 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
+                    usuario.cadastrar(Base64Custom.codificarBase64(email.getText().toString()));
+
                     Toast.makeText(CadastroUsuarioActivity.this,
                             "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
-                    FirebaseUser usuarioFireBase = task.getResult().getUser();
-                    usuario.cadastrar(usuarioFireBase.getUid());
-
-                    autenticacao.signOut();
-                    finish();
+                    abrirLoginUsuario();
                 }
                 else{
 
@@ -136,5 +139,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void abrirLoginUsuario(){
+        Intent intent = new Intent(CadastroUsuarioActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
