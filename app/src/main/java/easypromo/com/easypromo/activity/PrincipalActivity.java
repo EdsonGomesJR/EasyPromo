@@ -20,16 +20,24 @@ import android.widget.Toast;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
 import easypromo.com.easypromo.fragment.MenuNavegacaoFragment;
+import easypromo.com.easypromo.helper.Base64Custom;
+import easypromo.com.easypromo.model.Usuario;
 
 public class PrincipalActivity extends AppCompatActivity {
     private FloatingActionButton btnFab;
     private MenuNavegacaoFragment  mNavegacaoFragment;
-    private FirebaseAuth autenticacao;
     private android.support.v7.widget.Toolbar toolbar;
+
+    private FirebaseAuth autenticacao;
+    private DatabaseReference dbReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +67,6 @@ public class PrincipalActivity extends AppCompatActivity {
             case R.id.item_pesquisar:
                 abrirPesquisaPromocao();
                 return true;
-            case R.id.item_admin:
-                abrirTelaAdmin();
-                return true;
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
@@ -77,11 +82,6 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    private void abrirTelaAdmin(){
-        Intent intent = new Intent(PrincipalActivity.this, AdminActivity.class);
-        startActivity(intent);
     }
 
     private void abrirPesquisaPromocao(){
@@ -133,8 +133,6 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }
 

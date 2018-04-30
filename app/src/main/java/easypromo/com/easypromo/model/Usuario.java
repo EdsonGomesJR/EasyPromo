@@ -21,6 +21,10 @@ public class Usuario {
     // region Constructors
     public Usuario(){}
 
+    public Usuario(String id) {
+        this.id = id;
+    }
+
     public Usuario(String nome, String email, String senha, String perfilAdmin) {
         this.nome = nome;
         this.email = email;

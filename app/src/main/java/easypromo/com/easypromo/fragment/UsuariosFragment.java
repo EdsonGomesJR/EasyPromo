@@ -87,13 +87,7 @@ public class UsuariosFragment extends Fragment {
 							nome.setText(usuarioRecuperado.getNome());
 							email.setText(usuarioRecuperado.getEmail());
 							dataCadastro.setText(usuarioRecuperado.getDataCadastro());
-
-							if (usuarioRecuperado.getTipoPerfil() == "1"){
-								rbPerfilAdmin.setChecked(true);
-							}
-							else{
-								rbPerfilUsuario.setChecked(true);
-							}
+							verificaPerfilUsuario(usuarioRecuperado.getTipoPerfil());
 						}
 						else {
 							Toast.makeText(getActivity(), "Usuário não cadastrado", Toast.LENGTH_LONG)
@@ -110,5 +104,14 @@ public class UsuariosFragment extends Fragment {
 		});
 
 		return view;
+	}
+
+	private void verificaPerfilUsuario(String perfilUsuario){
+		if (perfilUsuario.equals("1")){
+			rbPerfilAdmin.setChecked(true);
+		}
+		else{
+			rbPerfilUsuario.setChecked(true);
+		}
 	}
 }

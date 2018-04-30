@@ -8,12 +8,6 @@
         android:icon="@drawable/ic_search"
         app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/item_admin"
-        android:title="Administração"
-        android:orderInCategory="150"
-        android:icon="@drawable/ic_admin"
-        app:showAsAction="ifRoom" />
-
     <item android:id="@+id/item_sair"
         android:title="Sair"
         android:orderInCategory="200"
