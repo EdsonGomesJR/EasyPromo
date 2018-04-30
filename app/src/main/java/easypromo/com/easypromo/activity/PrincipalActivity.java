@@ -2,6 +2,8 @@ package easypromo.com.easypromo.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,19 +11,23 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.firebase.auth.FirebaseAuth;
 
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
+import easypromo.com.easypromo.fragment.MenuNavegacaoFragment;
 
 public class PrincipalActivity extends AppCompatActivity {
-
+    private FloatingActionButton btnFab;
+    private MenuNavegacaoFragment  mNavegacaoFragment;
     private FirebaseAuth autenticacao;
     private android.support.v7.widget.Toolbar toolbar;
 
@@ -33,6 +39,11 @@ public class PrincipalActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.texto_toolbar);
         setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        this.getSupportActionBar().setHomeButtonEnabled(true);
+        this.mNavegacaoFragment = (MenuNavegacaoFragment) this.getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavegacaoFragment.setUp(R.id.navigation_drawer, toolbar, (DrawerLayout) this.findViewById(R.id.drawer_layout));
+        fabOpcoes();
     }
 
     @Override
@@ -111,4 +122,20 @@ public class PrincipalActivity extends AppCompatActivity {
         alertDialog.create();
         alertDialog.show();
     }
+
+    private void fabOpcoes() {
+
+        btnFab = findViewById(R.id.fab_adicionar_oferta);
+        btnFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PrincipalActivity.this, AdicionarOfertaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+    }
 }
+
+

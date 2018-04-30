@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
@@ -25,4 +25,23 @@
         <item name="android:background">@color/primaryColor</item>
     </style>
 
+    <style name="drawerItemTheme">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gray8</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">18.0dip</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">35.0dip</item>
+        <item name="android:layout_marginTop">5.0dip</item>
+        <item name="android:layout_marginBottom">5.0dip</item>
+        <item name="android:drawablePadding">20.0dip</item>
+        <item name="android:drawableTint" tools:ignore="NewApi">@color/gray6</item>
+    </style>
+
+    <style name="menu_labels_style">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/fab_label_background</item>
+    </style>
 </resources>

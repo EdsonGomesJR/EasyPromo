@@ -7,4 +7,17 @@
 
     <color name="primaryTextColor">#000000</color>
     <color name="primaryTextHintColor">#8e8e8e</color>
+
+
+    <color name="gray2">#ffe4e4e4</color>
+    <color name="gray3">#ffdcdcdc</color>
+    <color name="gray4">#ffbebebe</color>
+    <color name="gray5">#ffb8b8b8</color>
+    <color name="gray5.5">#ffa7a7a7</color>
+    <color name="gray6">#ff878787</color>
+    <color name="gray7">#ff828282</color>
+    <color name="gray8">#ff777777</color>
+    <color name="blue1">#ff31adf5</color>
+    <color name="blue2">#ff00acec</color>
+    <color name="black_semi_transparent">#b2000000</color>
 </resources>

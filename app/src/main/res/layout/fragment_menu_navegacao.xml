@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/gray2"
+>
+
+    <LinearLayout
+        android:id="@+id/menu_nv_cabecalho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor"
+        android:orientation="vertical"
+        android:paddingBottom="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="105dp"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <FrameLayout
+                android:layout_width="95dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/menu_nv_user_foto"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/background_light" />
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/menu_nv_nomeUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="25dp"
+                    android:text="Nome do Usuario"
+                    android:textColor="@color/backgroundColor"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/menu_nv_add"
+                android:text="Adicionar"
+                android:drawableLeft="@drawable/ic_add_box"
+                style="@style/drawerItemTheme" />
+
+            <TextView android:id="@+id/menu_nv_top_oferta"
+                android:text="TOP Ofertas"
+                android:drawableLeft="@drawable/ic_star"
+                style="@style/drawerItemTheme" />
+
+            <TextView
+                android:id="@+id/menu_nv_categorias_lojas"
+                android:text="Categorias e Lojas"
+                android:drawableLeft="@drawable/ic_filter_list"
+                style="@style/drawerItemTheme" />
+
+
+            <TextView
+                android:id="@+id/menu_nv_lista_desejos"
+                android:text="Lista de Desejos"
+                android:drawableLeft="@drawable/ic_action_heart"
+                style="@style/drawerItemTheme" />
+
+            <View android:background="@color/gray2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/gray6"
+                android:paddingLeft="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Comunidade" />
+
+            <TextView
+                android:id="@+id/menu_nv_comentarios"
+                android:text="Ultimos Comentários"
+                android:drawableLeft="@drawable/ic_comment"
+                style="@style/drawerItemTheme" />
+            <TextView
+                android:id="@+id/menu_nv_forum"
+                android:text="Fórum"
+                android:drawableLeft="@drawable/ic_mode_comment"
+                style="@style/drawerItemTheme" />
+            <View
+                android:background="@color/gray2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
+            <TextView
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/gray6"
+                android:paddingLeft="18dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="7dp"
+                android:text="Cupons" />
+            <TextView
+                android:id="@+id/menu_nv_cupons"
+                android:text="Últimos Cupons"
+                android:drawableLeft="@drawable/ic_local_offer"
+                style="@style/drawerItemTheme" />
+            <TextView
+                android:id="@+id/menu_nv_cupons_loja"
+                android:text="Cupons por Loja"
+                android:drawableLeft="@drawable/ic_filter_list"
+                style="@style/drawerItemTheme" />
+            <View
+                android:background="@color/gray2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
+            <TextView
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/gray6"
+                android:paddingLeft="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="5dp"
+                android:text="Mais" />
+            <TextView
+                android:id="@+id/menu_nv_config"
+                android:text="Configurações"
+                android:drawableLeft="@drawable/ic_settings"
+                style="@style/drawerItemTheme" />
+            <TextView
+                android:id="@+id/menu_nv_compartilhar"
+                android:text="Indique o EasyPromo"
+                android:drawableLeft="@drawable/ic_group_add"
+                style="@style/drawerItemTheme" />
+            <TextView
+                android:id="@+id/menu_nv_feedback"
+                android:text="Feedback"
+                android:drawableLeft="@drawable/ic_feedback"
+                style="@style/drawerItemTheme" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
