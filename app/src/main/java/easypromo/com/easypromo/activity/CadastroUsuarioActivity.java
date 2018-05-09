@@ -93,7 +93,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 nome.getText().toString(),
                 email.getText().toString(),
                 senha.getText().toString(),
-                "");
+                "", "");
     }
 
     private void cadastrarUsuario(){

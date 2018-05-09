@@ -33,15 +33,17 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/menu_nv_user_foto"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@android:color/background_light" />
+                    android:layout_width="76dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="20dp"
+                    app:civ_border_color="@color/black"
+                    app:civ_border_width="2dp"
+
+                    />
 
             </FrameLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,7 +102,7 @@
                 android:drawableLeft="@drawable/ic_action_heart"
                 style="@style/drawerItemTheme" />
 
-            <View android:background="@color/gray2"
+            <View android:background="@color/gray8"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
@@ -128,7 +130,7 @@
                 android:drawableLeft="@drawable/ic_mode_comment"
                 style="@style/drawerItemTheme" />
             <View
-                android:background="@color/gray2"
+                android:background="@color/gray8"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
@@ -154,7 +156,7 @@
                 android:drawableLeft="@drawable/ic_filter_list"
                 style="@style/drawerItemTheme" />
             <View
-                android:background="@color/gray2"
+                android:background="@color/gray8"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"

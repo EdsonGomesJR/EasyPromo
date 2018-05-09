@@ -20,4 +20,5 @@
     <color name="blue1">#ff31adf5</color>
     <color name="blue2">#ff00acec</color>
     <color name="black_semi_transparent">#b2000000</color>
+    <color name="black">#b2000000</color>
 </resources>

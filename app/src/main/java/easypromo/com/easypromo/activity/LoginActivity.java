@@ -15,9 +15,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
+import easypromo.com.easypromo.helper.Base64Custom;
 import easypromo.com.easypromo.helper.Utilidades;
 import easypromo.com.easypromo.model.Usuario;
 
@@ -30,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private Usuario usuario;
     private FirebaseAuth autenticacao;
+    private DatabaseReference dbReference;
+
+    private String usuarioAtivo = "0";
     // endregion
 
     @Override
@@ -60,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 usuario = new Usuario(
                         email.getText().toString(),
                         senha.getText().toString());
+
                 validarLogin();
             }
         });
@@ -85,8 +94,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()){
-                    abrirTelaPrincipal();
 
+                    dbReference = AcessoDatabase.getReferencia()
+                            .child("usuarios")
+                            .child(Base64Custom.codificarBase64(usuario.getEmail()));
+
+                    if (!validarUsuarioAtivo()){
+                        Toast.makeText(LoginActivity.this,
+                                "Usuário bloqueado por um administrador", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        abrirTelaPrincipal();
+                    }
                 } else{
 
                     String erroExcecao = "";
@@ -110,6 +129,26 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean validarUsuarioAtivo(){
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if ( dataSnapshot.getValue() != null ){
+                    Usuario usuarioRecuperado = dataSnapshot.getValue(Usuario.class);
+                    usuarioAtivo = usuarioRecuperado.getAtivo();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        return usuarioAtivo.equals("1");
     }
 
     private void limparTela(){

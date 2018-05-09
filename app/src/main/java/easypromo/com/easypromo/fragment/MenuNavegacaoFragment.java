@@ -1,9 +1,13 @@
 package easypromo.com.easypromo.fragment;
 
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.app.Fragment;
@@ -29,6 +33,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.activity.AdicionarOfertaActivity;
@@ -37,8 +42,11 @@ import easypromo.com.easypromo.activity.LoginActivity;
 import easypromo.com.easypromo.activity.PrincipalActivity;
 import easypromo.com.easypromo.config.AcessoDatabase;
 import easypromo.com.easypromo.helper.Base64Custom;
+import easypromo.com.easypromo.helper.UniversalImageLoader;
 import easypromo.com.easypromo.helper.Utilidades;
 import easypromo.com.easypromo.model.Usuario;
+
+import static android.app.Activity.RESULT_OK;
 
 public class MenuNavegacaoFragment extends Fragment {
 
@@ -55,7 +63,7 @@ public class MenuNavegacaoFragment extends Fragment {
     private FirebaseAuth autenticacao;
     private DatabaseReference dbReference;
 
-    Usuario usuarioRecuperado;
+    private Usuario usuarioRecuperado;
 
     public MenuNavegacaoFragment() {
         // Required empty public constructor
@@ -66,6 +74,7 @@ public class MenuNavegacaoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View inflate = inflater.inflate(R.layout.fragment_menu_navegacao, container, false);
+        recuperarUsuarioLogado();
 
         nomeUsuario = inflate.findViewById(R.id.menu_nv_nomeUsuario);
 
@@ -86,14 +95,20 @@ public class MenuNavegacaoFragment extends Fragment {
         });
 
         foto = inflate.findViewById(R.id.menu_nv_user_foto);
-        foto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(),"Teste", Toast.LENGTH_LONG).show();
-            }
-        });
+        initImageLoader();
+        setProfileImage();
 
         return inflate;
+    }
+
+    private void setProfileImage() {
+        String imgURL = "i.pinimg.com/originals/de/f6/96/def69643889ee29e232637646e839064.jpg";
+        UniversalImageLoader.setImage(imgURL, foto,null,"https://");
+    }
+
+    private void initImageLoader() {
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(getActivity());
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     public void setUp(int n, Toolbar toolbar, DrawerLayout mDrawerLayout) {
@@ -109,16 +124,11 @@ public class MenuNavegacaoFragment extends Fragment {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                Toast.makeText(getActivity(),"Fechou Nav", Toast.LENGTH_LONG).show();
-
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                Toast.makeText(getActivity(),"Abriu Nav", Toast.LENGTH_LONG).show();
-
-                recuperarUsuarioLogado();
             }
         };
 
@@ -151,9 +161,12 @@ public class MenuNavegacaoFragment extends Fragment {
                         usuarioRecuperado = dataSnapshot.getValue(Usuario.class);
                         nomeUsuario.setText(usuarioRecuperado.getNome());
 
-                        if (usuarioRecuperado.getTipoPerfil().equals("1")){
+                       if (usuarioRecuperado.getTipoPerfil().equals("1")){
                             administracao.setVisibility(View.VISIBLE);
-                        }
+                        }else{
+
+                           administracao.setVisibility(View.GONE);
+                       }
                     }
                 }
 
@@ -162,7 +175,7 @@ public class MenuNavegacaoFragment extends Fragment {
             });
         }
         else{
-            Toast.makeText(getActivity(),"Erro ao obter sessão do usuário", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"Erro ao obter sessão do usuário", Toast.LENGTH_SHORT).show();
         }
     }
 

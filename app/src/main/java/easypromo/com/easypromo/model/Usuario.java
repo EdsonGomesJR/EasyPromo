@@ -16,6 +16,7 @@ public class Usuario {
     private String senha;
     private String dataCadastro;
     private String perfilAdmin; // (1) Admin - (0) Padrão
+    private String ativo;       // (1) Sim - (0) Não
     // endregion
 
     // region Constructors
@@ -25,12 +26,13 @@ public class Usuario {
         this.id = id;
     }
 
-    public Usuario(String nome, String email, String senha, String perfilAdmin) {
+    public Usuario(String nome, String email, String senha, String perfilAdmin, String ativo) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.dataCadastro = Utilidades.getHoraAtual();
         this.perfilAdmin = (perfilAdmin.isEmpty()) ? "0" : "1";
+        this.ativo = (ativo.isEmpty()) ? "1" : "0";
     }
 
     public Usuario(String email, String senha) {
@@ -83,5 +85,9 @@ public class Usuario {
     public String getTipoPerfil() { return perfilAdmin; }
 
     private void setTipoPerfil(String perfilAdmin) { this.perfilAdmin = perfilAdmin; }
+
+    public String getAtivo() { return ativo; }
+
+    public void setAtivo(String ativo) { this.ativo = ativo; }
     // endregion
 }

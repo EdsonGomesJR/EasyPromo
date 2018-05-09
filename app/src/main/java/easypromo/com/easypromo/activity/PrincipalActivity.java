@@ -3,6 +3,9 @@ package easypromo.com.easypromo.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +28,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
 import easypromo.com.easypromo.fragment.MenuNavegacaoFragment;
@@ -42,6 +48,9 @@ public class PrincipalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        recuperarUsuarioLogado();
+
         setContentView(R.layout.activity_principal);
 
         toolbar = findViewById(R.id.toolbar);
@@ -52,6 +61,11 @@ public class PrincipalActivity extends AppCompatActivity {
         this.mNavegacaoFragment = (MenuNavegacaoFragment) this.getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavegacaoFragment.setUp(R.id.navigation_drawer, toolbar, (DrawerLayout) this.findViewById(R.id.drawer_layout));
         fabOpcoes();
+    }
+
+    private void recuperarUsuarioLogado(){
+        autenticacao = AcessoDatabase.getAutenticacao();
+        if (autenticacao.getCurrentUser() == null) deslogarUsuario();
     }
 
     @Override
@@ -134,6 +148,42 @@ public class PrincipalActivity extends AppCompatActivity {
             }
         });
     }
+    private void compartilharFoto() {
+
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent,1);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //testar o retorno dos dados
+
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null){
+            //recuperar local da imagem
+
+            Uri localImagemSelecionada = data.getData();
+
+            //recupera a imagem do local que foi selecionada
+            try {
+                Bitmap imagem = MediaStore.Images.Media.getBitmap(getContentResolver(),localImagemSelecionada);
+
+                //comprimir no formato PNG
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imagem.compress(Bitmap.CompressFormat.PNG,75,stream);
+
+                //criar um arquivo com formato parse
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+    }
+
 }
 
 

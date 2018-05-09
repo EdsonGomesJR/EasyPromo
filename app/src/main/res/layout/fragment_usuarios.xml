@@ -126,6 +126,7 @@
                     android:textColor="@color/primaryTextColor" />
 
                 <RadioGroup
+                    android:id="@+id/rgroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
@@ -165,17 +166,17 @@
                     android:layout_marginBottom="0dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:text="Salvar"
+                    android:enabled="true"
+                    android:text="Salvar alterações"
                     android:theme="@style/ButtonTheme" />
 
                 <Button
-                    android:id="@+id/btExcluir"
+                    android:id="@+id/btAtivarInativar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    android:text="Excluir"
                     android:theme="@style/ButtonTheme" />
 
             </LinearLayout>
