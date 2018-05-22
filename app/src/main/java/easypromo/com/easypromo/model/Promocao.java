@@ -1,81 +1,132 @@
 package easypromo.com.easypromo.model;
 
-public class Promocao {
+import com.google.firebase.database.DatabaseReference;
 
-    // region Attributes
-    private Integer id;
-    private String produto;
-    private String url;
-    private String precoOriginal;
-    private String precoPromocional;
-    private String categoria;
-    private String comentarios;
-    // endregion
+import easypromo.com.easypromo.config.AcessoDatabase;
+import easypromo.com.easypromo.helper.Utilidades;
 
-    // region Constructors
-    public Promocao() {
 
+    public class Promocao {
+
+        // region Attributes
+        private String id;
+        private String url;
+        private String nome;
+        private Double preco;
+        private String categoria;
+        private String status; // (1) Aprovada - (0) Pendente
+        private String dataCadastro;
+        private String imagem_path;
+        // endregion
+
+        // region Constructors
+        public Promocao(){}
+
+        public Promocao(String id, String url, String nome, Double preco, String categoria, String status, String imagem) {
+            setId(id);
+            setUrl(url);
+            setNome(nome);
+            setPreco(preco);
+            setCategoria(categoria);
+            setStatus(status);
+            setDataCadastro(Utilidades.getHoraAtual());
+            setImagem_path(imagem);
+        }
+        // endregion
+
+        // region Methods
+        public void cadastrar(){
+            DatabaseReference dbReferencia = AcessoDatabase.getReferencia();
+            dbReferencia.child("promocoes").child(getId()).setValue(this);
+        }
+
+        public void aprovar(){
+            DatabaseReference dbReferencia = AcessoDatabase.getReferencia();
+            dbReferencia.child("promocoes").child(getId()).child("status").setValue("1");
+        }
+
+        public void recusar(){
+            DatabaseReference dbReferencia = AcessoDatabase.getReferencia();
+            dbReferencia.child("promocoes").child(getId()).child("status").setValue("2");
+        }
+        // endregion
+
+        // region Getters & Setters
+        public String getId() { return id; }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getNome() {
+            return nome;
+        }
+
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+
+            if (!url.startsWith("http://") && !url.startsWith("https://")){
+                url = "http://" + url;
+            }
+
+            this.url = url;
+        }
+
+        public Double getPreco() {
+            return preco;
+        }
+
+        public void setPreco(Double preco) {
+            this.preco = preco;
+        }
+
+        public String getCategoria() {
+            return categoria;
+        }
+
+        public void setCategoria(String categoria) {
+            this.categoria = categoria;
+        }
+
+        public String getStatus() { return status; }
+
+        public void setStatus(String status) { this.status = (status.isEmpty()) ? "0" : "1"; }
+
+        public String getDataCadastro() { return dataCadastro; }
+
+        public void setDataCadastro(String dataCadastro) { this.dataCadastro = dataCadastro; }
+        // endregion
+
+        @Override
+        public String toString() {
+            return "Promocao{" +
+                    "id='" + id + '\'' +
+                    ", url='" + url + '\'' +
+                    ", nome='" + nome + '\'' +
+                    ", preco=" + preco +
+                    ", categoria='" + categoria + '\'' +
+                    ", status='" + status + '\'' +
+                    ", dataCadastro='" + dataCadastro + '\'' +
+                    ", imagem_path='" + imagem_path + '\'' +
+                    '}';
+        }
+
+        public String getImagem_path() {
+            return imagem_path;
+        }
+
+        public void setImagem_path(String imagem_path) {
+            this.imagem_path = imagem_path;
+        }
+
+        public String getLoja(){
+            return "";
+        }
     }
-    // endregion
-
-    // region Methods
-    // endregion
-
-    // region Getters & Setters
-    private Integer getId() {
-        return id;
-    }
-
-    private void setId(Integer id) {
-        this.id = id;
-    }
-
-    private String getProduto() {
-        return produto;
-    }
-
-    private void setProduto(String produto) {
-        this.produto = produto;
-    }
-
-    private String getUrl() {
-        return url;
-    }
-
-    private void setUrl(String url) {
-        this.url = url;
-    }
-
-    private String getPrecoOriginal() {
-        return precoOriginal;
-    }
-
-    private void setPrecoOriginal(String precoOriginal) {
-        this.precoOriginal = precoOriginal;
-    }
-
-    private String getPrecoPromocional() {
-        return precoPromocional;
-    }
-
-    private void setPrecoPromocional(String precoPromocional) {
-        this.precoPromocional = precoPromocional;
-    }
-
-    private String getCategoria() {
-        return categoria;
-    }
-
-    private void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    private String getComentarios() {
-        return comentarios;
-    }
-
-    private void setComentarios(String comentarios) {
-        this.comentarios = comentarios;
-    }
-    // endregion
-}

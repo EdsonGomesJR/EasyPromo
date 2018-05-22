@@ -3,6 +3,7 @@
     package="easypromo.com.easypromo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,9 @@
         <activity android:name=".activity.CadastroUsuarioActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.AdminActivity" />
-        <activity android:name=".activity.AdicionarOfertaActivity"></activity>
+        <activity android:name=".activity.AdicionarOfertaActivity" />
+        <activity android:name=".activity.DetalhesOfertaActivity" />
+        <activity android:name=".activity.IrLojaActivity"/>
     </application>
 
 </manifest>

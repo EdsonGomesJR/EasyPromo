@@ -3,6 +3,12 @@
     <string name="app_name">EasyPromo</string>
 
     <!-- Textos de views -->
+    <string name="texto_adicionar_oferta">Ao sugerir uma nova oferta no EasyPromo uma equipe de administração de conteúdo irá verificar e avaliar se a loja é confiável e se o valor está abaixo do mercado. Sua oferta será aprovada após a confirmação destes itens e estará visível para todos os usuários do aplicativo.</string>
+
+    <!-- Textos do spinner das categorias -->
+    <string name="texto_spinner_categorias">Selecione uma categoria...</string>
+
+    <!-- Textos de views -->
     <string name="texto_btEntrar">Entrar</string>
     <string name="texto_txtCadastrar">Cadastre-se!</string>
     <string name="texto_btRegistrar">Cadastrar</string>

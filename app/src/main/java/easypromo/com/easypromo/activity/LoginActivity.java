@@ -1,7 +1,6 @@
 package easypromo.com.easypromo.activity;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -91,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 usuario.getSenha()
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(Task<AuthResult> task) {
 
                 if (task.isSuccessful()){
 
@@ -99,13 +98,8 @@ public class LoginActivity extends AppCompatActivity {
                             .child("usuarios")
                             .child(Base64Custom.codificarBase64(usuario.getEmail()));
 
-                    if (!validarUsuarioAtivo()){
-                        Toast.makeText(LoginActivity.this,
-                                "Usuário bloqueado por um administrador", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        abrirTelaPrincipal();
-                    }
+                    validarUsuarioAtivo();
+
                 } else{
 
                     String erroExcecao = "";
@@ -131,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validarUsuarioAtivo(){
+    private void validarUsuarioAtivo(){
         dbReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -139,6 +133,14 @@ public class LoginActivity extends AppCompatActivity {
                 if ( dataSnapshot.getValue() != null ){
                     Usuario usuarioRecuperado = dataSnapshot.getValue(Usuario.class);
                     usuarioAtivo = usuarioRecuperado.getAtivo();
+
+                    if (usuarioAtivo.equals("1")){
+                        abrirTelaPrincipal();
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this,
+                                "Usuário bloqueado por um administrador", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -147,8 +149,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        return usuarioAtivo.equals("1");
     }
 
     private void limparTela(){

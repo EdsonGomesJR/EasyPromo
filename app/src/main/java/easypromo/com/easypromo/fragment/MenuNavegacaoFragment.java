@@ -96,7 +96,7 @@ public class MenuNavegacaoFragment extends Fragment {
 
         foto = inflate.findViewById(R.id.menu_nv_user_foto);
         initImageLoader();
-        setProfileImage();
+        //setProfileImage();
 
         return inflate;
     }
@@ -159,7 +159,7 @@ public class MenuNavegacaoFragment extends Fragment {
                     if( dataSnapshot.getValue() != null ){
 
                         usuarioRecuperado = dataSnapshot.getValue(Usuario.class);
-                        nomeUsuario.setText(usuarioRecuperado.getNome());
+                        nomeUsuario.setText("Olá, " + usuarioRecuperado.getNome());
 
                        if (usuarioRecuperado.getTipoPerfil().equals("1")){
                             administracao.setVisibility(View.VISIBLE);

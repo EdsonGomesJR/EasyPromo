@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    n1:id="@+id/oferta_detalhes_scrollView"
+    n1:layout_width="match_parent"
+    n1:layout_height="wrap_content"
+
+    n1:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        app:cardBackgroundColor="@color/gray3"
+        n1:layout_width="match_parent"
+        n1:layout_height="50dp">
+
+        <LinearLayout
+            n1:layout_width="match_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_marginRight="0dp"
+            n1:layout_marginTop="0dp"
+            n1:orientation="horizontal">
+
+            <TextView
+                n1:id="@+id/oferta_detalhes_url_loja"
+                n1:layout_width="0dp"
+                n1:layout_height="35dp"
+                n1:layout_marginTop="8dp"
+                n1:layout_weight="1"
+                n1:paddingLeft="14dp"
+                n1:text="Oferta na loja:
+americanas.com.br"
+                n1:textColor="@color/black"
+                n1:textSize="12sp" />
+
+            <ImageView
+                n1:layout_width="20dp"
+                n1:layout_height="20dp"
+                n1:layout_marginLeft="10dp"
+                n1:layout_marginRight="5dp"
+                n1:layout_marginTop="15dp"
+                n1:src="@drawable/ic_eye_24dp"
+                n1:tint="@color/gray8" />
+
+            <TextView
+                n1:id="@+id/oferta_detalhes_visualizacao"
+                n1:layout_width="wrap_content"
+                n1:layout_height="20dp"
+                n1:text="20"
+                n1:textColor="@color/gray8"
+                n1:layout_marginTop="15dp" />
+
+            <ImageView
+                n1:id="@+id/offer_detail_comment_icon"
+                n1:layout_width="20dp"
+                n1:layout_height="20dp"
+                n1:layout_marginLeft="10dp"
+                n1:layout_marginRight="5dp"
+                n1:layout_marginTop="15dp"
+                n1:src="@drawable/ic_comment"
+                n1:tint="@color/gray8" />
+
+            <TextView
+                n1:id="@+id/oferta_detalhes_coment_count"
+                n1:layout_width="wrap_content"
+                n1:text="5"
+                n1:textColor="@color/gray8"
+                n1:layout_height="20dp"
+                n1:layout_marginTop="15dp" />
+
+            <ImageView
+                n1:id="@+id/oferta_detalhes_ico_like"
+                n1:layout_width="20dp"
+                n1:src="@drawable/ic_thumb_up"
+                n1:tint="@color/gray8"
+                n1:layout_height="20dp"
+                n1:layout_marginLeft="10dp"
+                n1:layout_marginRight="5dp"
+                n1:layout_marginTop="15dp" />
+
+            <TextView
+                n1:id="@+id/oferta_detalhes_like_count"
+                n1:layout_width="wrap_content"
+                n1:layout_height="20dp"
+                n1:text="100"
+                n1:textColor="@color/gray8"
+                n1:layout_marginRight="10dp"
+                n1:layout_marginTop="15dp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        n1:layout_width="match_parent"
+        n1:layout_height="200dp">
+
+        <FrameLayout
+
+            n1:layout_width="match_parent"
+            n1:layout_height="230dp"
+            n1:layout_gravity="center_horizontal"
+            n1:layout_marginTop="0dp"
+            n1:foregroundGravity="center">
+
+            <ImageView
+                n1:id="@+id/offer_detail_photo"
+                n1:layout_width="200.0dip"
+                n1:layout_height="200.0dip"
+                n1:layout_gravity="center_horizontal" />
+
+            <ProgressBar
+                n1:id="@+id/offer_detail_photo_progress_bar"
+                style="?android:progressBarStyleLarge"
+                n1:layout_width="wrap_content"
+                n1:layout_height="wrap_content"
+                n1:layout_gravity="center"
+                n1:visibility="visible" />
+
+
+        </FrameLayout>
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        n1:layout_width="match_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_marginLeft="5dp"
+        n1:layout_marginRight="5dp"
+        n1:layout_marginTop="0dp"
+        app:cardBackgroundColor="@color/gray3">
+
+        <LinearLayout
+            n1:layout_width="match_parent"
+            n1:layout_height="wrap_content"
+            n1:orientation="vertical">
+            <View
+                n1:layout_width="match_parent"
+                n1:layout_height="1dp"
+                n1:layout_margin="5dp"
+                n1:background="@color/black" />
+            <TextView
+                n1:text="Nome do Produto e sua  breve descrição podendo ser digitado em até 3 linhas de texto "
+                n1:id="@+id/offer_detail_title"
+                n1:layout_width="match_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_gravity="top"
+                n1:gravity="center_horizontal"
+                n1:maxLines="3"
+                n1:minHeight="20dp"
+                n1:paddingLeft="10dp"
+                n1:paddingRight="10dp"
+                n1:paddingTop="10dp"
+                n1:textColor="@color/primaryDarkColor"
+                n1:textSize="20dp"
+                n1:textStyle="bold" />
+
+            <LinearLayout
+                n1:layout_width="match_parent"
+                n1:layout_height="50dp"
+                n1:gravity="center_vertical"
+                n1:orientation="horizontal"
+                n1:padding="10dp">
+
+                <View
+                    n1:layout_width="0dp"
+                    n1:layout_height="match_parent"
+                    n1:layout_weight="1" />
+
+                <TextView
+                    n1:id="@+id/offer_detail_old_price"
+                    n1:layout_width="wrap_content"
+                    n1:text="R$ 20.00"
+                    n1:layout_height="wrap_content"
+                    n1:textColor="@color/card_from"
+                    n1:textSize="24sp" />
+
+                <TextView
+                    n1:id="@+id/offer_detail_price"
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_marginLeft="20dp"
+                    n1:text="R300,00"
+                    n1:textColor="@color/card_titl2"
+                    n1:textSize="24sp"
+                    n1:textStyle="bold" />
+
+                <View
+                    n1:layout_width="0dp"
+                    n1:layout_height="match_parent"
+                    n1:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                n1:layout_width="match_parent"
+                n1:layout_height="wrap_content"
+                n1:orientation="vertical">
+
+                <View
+                    n1:layout_width="match_parent"
+                    n1:layout_height="1dp"
+                    n1:layout_margin="5dp"
+                    n1:background="@color/gray8" />
+
+                <Button
+                    n1:id="@+id/oferta_detalhes_ir_loja"
+                    n1:layout_width="match_parent"
+                    n1:layout_height="wrap_content"
+                    n1:layout_marginBottom="10dp"
+                    n1:layout_marginLeft="5dp"
+                    n1:layout_marginRight="5dp"
+                    n1:layout_marginTop="5dp"
+                    n1:background="@color/primaryDarkColor"
+                    n1:paddingLeft="40dp"
+                    n1:paddingRight="40dp"
+                    n1:text="Ir para a Loja"
+                    n1:textColor="@color/white"
+                    n1:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        n1:layout_width="match_parent"
+        n1:layout_height="wrap_content"
+        n1:orientation="vertical">
+
+        <LinearLayout
+            n1:layout_width="match_parent"
+            n1:layout_height="wrap_content"
+            n1:paddingTop="10dp">
+
+            <View
+                n1:layout_width="0dp"
+                n1:layout_height="20dp"
+                n1:layout_weight="1" />
+
+            <LinearLayout
+                n1:id="@+id/oferta_detalhes_likes"
+                n1:layout_width="60dp"
+                n1:layout_height="60dp"
+                n1:orientation="vertical">
+
+                <ImageView
+                    n1:id="@+id/like_ic_inferior"
+                    n1:layout_width="30dp"
+                    n1:layout_height="30dp"
+                    n1:layout_gravity="center_horizontal"
+                    n1:src="@drawable/ic_thumb_up"
+                    n1:tint="@color/gray6" />
+
+                <TextView
+                    n1:layout_width="match_parent"
+                    n1:layout_height="wrap_content"
+                    n1:gravity="center"
+                    n1:paddingTop="5dp"
+                    n1:text="Gostei"
+                    n1:textAllCaps="true"
+                    n1:textColor="@color/gray6"
+                    n1:textSize="10sp" />
+            </LinearLayout>
+
+            <View
+                n1:layout_width="0dp"
+                n1:layout_height="20dp"
+                n1:layout_weight="1" />
+
+            <LinearLayout
+                n1:id="@+id/offer_detail_report"
+                n1:layout_width="60dp"
+                n1:layout_height="60dp"
+                n1:orientation="vertical">
+
+                <ImageView
+                    n1:layout_width="30dp"
+                    n1:layout_height="30dp"
+                    n1:layout_gravity="center_horizontal"
+                    n1:src="@drawable/ic_thumb_down"
+                    n1:tint="@color/gray6" />
+
+                <TextView
+                    n1:layout_width="match_parent"
+                    n1:layout_height="wrap_content"
+                    n1:gravity="center"
+                    n1:paddingTop="5dp"
+                    n1:text="Reportar"
+                    n1:textAllCaps="true"
+                    n1:textColor="@color/gray6"
+                    n1:textSize="10sp" />
+            </LinearLayout>
+
+            <View
+                n1:layout_width="0dp"
+                n1:layout_height="20dp"
+                n1:layout_weight="1" />
+
+            <LinearLayout
+                n1:id="@+id/wishlist"
+                n1:layout_width="60dp"
+                n1:layout_height="60dp"
+                n1:orientation="vertical">
+
+                <ImageView
+                    n1:layout_width="30dp"
+                    n1:layout_height="30dp"
+                    n1:layout_gravity="center_horizontal"
+                    n1:src="@drawable/ic_action_heart"
+                    n1:tint="@color/gray6" />
+
+                <TextView
+                    n1:layout_width="match_parent"
+                    n1:layout_height="wrap_content"
+                    n1:gravity="center"
+                    n1:paddingTop="5dp"
+                    n1:text="Alertas"
+                    n1:textAllCaps="true"
+                    n1:textColor="@color/gray6"
+                    n1:textSize="10sp" />
+            </LinearLayout>
+
+            <View
+                n1:layout_width="0dp"
+                n1:layout_height="20dp"
+                n1:layout_weight="1" />
+        </LinearLayout>
+
+        <View
+            n1:layout_width="match_parent"
+            n1:layout_height="1dp"
+            n1:layout_marginLeft="5dp"
+            n1:layout_marginRight="5dp"
+            n1:background="@color/gray8" />
+
+        <LinearLayout
+            n1:id="@+id/oferta_instrucoes"
+            n1:layout_width="match_parent"
+            n1:layout_height="wrap_content"
+            n1:orientation="vertical">
+
+            <TextView
+                n1:layout_width="match_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_marginBottom="5dp"
+                n1:layout_marginLeft="14dp"
+                n1:layout_marginRight="14dp"
+                n1:layout_marginTop="20dp"
+                n1:text="Instruções Adicionais"
+                n1:textColor="@color/card_titl2"
+                n1:textSize="18sp"
+                n1:textStyle="bold" />
+
+            <TextView
+                n1:id="@+id/oferta_instrucoes_info"
+                n1:text="Forma de Pagamento:"
+                n1:textColor="@color/gray8"
+                n1:layout_width="match_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_marginBottom="5dp"
+                n1:layout_marginLeft="14dp"
+                n1:layout_marginRight="14dp"
+                n1:layout_marginTop="0.0dp"
+                n1:textIsSelectable="true" />
+
+            <View
+                n1:layout_width="match_parent"
+                n1:layout_height="1dp"
+                n1:layout_marginBottom="10dp"
+                n1:layout_marginLeft="5dp"
+                n1:layout_marginRight="5dp"
+                n1:layout_marginTop="10dp"
+                n1:background="@color/gray8" />
+        </LinearLayout>
+
+        <LinearLayout
+            n1:layout_width="match_parent"
+            n1:layout_height="wrap_content"
+            n1:orientation="horizontal"
+            n1:paddingBottom="10dp"
+            n1:paddingLeft="14dp"
+            n1:paddingRight="14dp"
+            n1:paddingTop="0dp">
+
+            <FrameLayout
+                n1:layout_width="35dp"
+                n1:layout_height="35dp"
+                n1:layout_marginLeft="0dp"
+                n1:layout_marginTop="0dp">
+
+                <ImageView
+                    n1:id="@+id/oferta_detalhes_user_foto"
+                    n1:layout_width="35dp"
+                    n1:src="@drawable/banner"
+                    n1:layout_height="35dp" />
+
+                <ProgressBar
+                    n1:id="@+id/progress_bar_usuario_ofDetalhes"
+                    style="?android:progressBarStyleSmall"
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_gravity="center"
+                    n1:visibility="gone" />
+            </FrameLayout>
+
+            <LinearLayout
+                n1:layout_width="match_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_marginLeft="10dp"
+                n1:orientation="vertical">
+
+                <TextView
+                    n1:id="@+id/ofertas_detalhes_postagemInfo"
+                    n1:layout_width="wrap_content"
+                    n1:text="João @johnz 3 min atrás"
+                    n1:textColor="@color/gray8"
+                    n1:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            n1:layout_width="match_parent"
+            n1:layout_height="1dp"
+            n1:background="@color/gray8" />
+    </LinearLayout>
+
+    <LinearLayout
+        n1:layout_width="match_parent"
+        n1:layout_height="match_parent"
+        n1:orientation="vertical"
+        n1:padding="14dp">
+
+        <TextView
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_marginBottom="5dp"
+            n1:layout_marginTop="5dp"
+            n1:text="Comentarios"
+            n1:textColor="@color/card_titl2"
+            n1:textSize="18.0sp"
+            n1:textStyle="bold" />
+
+        <Button
+            n1:id="@+id/oferta_detalhes_escre_coment"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_marginBottom="10.0dip"
+            n1:layout_marginTop="5.0dip"
+            n1:background="@color/primaryDarkColor"
+            n1:paddingLeft="40.0dip"
+            n1:paddingRight="40.0dip"
+            n1:text="Escreva um Comentario"
+            n1:textColor="@color/white"
+            n1:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

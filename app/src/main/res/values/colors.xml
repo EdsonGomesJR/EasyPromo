@@ -8,7 +8,12 @@
     <color name="primaryTextColor">#000000</color>
     <color name="primaryTextHintColor">#8e8e8e</color>
 
+    <color name="titulo_card">#2929a3</color>
+    <color name="preco_antigo">#ff770000</color>
+    <color name="transparente">#00000000</color>
 
+    <color name="dark_text">#ff6f6f6f</color>
+    <color name="white">#fff</color>
     <color name="gray2">#ffe4e4e4</color>
     <color name="gray3">#ffdcdcdc</color>
     <color name="gray4">#ffbebebe</color>
@@ -16,9 +21,28 @@
     <color name="gray5.5">#ffa7a7a7</color>
     <color name="gray6">#ff878787</color>
     <color name="gray7">#ff828282</color>
-    <color name="gray8">#ff777777</color>
+    <color name="gray8">#565656</color>
     <color name="blue1">#ff31adf5</color>
     <color name="blue2">#ff00acec</color>
     <color name="black_semi_transparent">#b2000000</color>
     <color name="black">#b2000000</color>
+
+
+
+    <color name="card_active">#ff00c853</color>
+    <color name="card_background">#ffffffff</color>
+    <color name="card_bar">#fff5f5f5</color>
+    <color name="card_blue">#ff009688</color>
+    <color name="card_color">#ff66a692</color>
+    <color name="card_detailing">#ffeeeeee</color>
+    <color name="card_from">#ff770000</color>
+    <color name="card_shadow_1">#ffd4d4d4</color>
+    <color name="card_shadow_2">#ffdddddd</color>
+    <color name="card_title">#ff37474f</color>
+    <color name="card_titl2">#2929a3</color>
+    <color name="card_to">#ff00838f</color>
+    <color name="cardview_dark_background">#ff424242</color>
+    <color name="cardview_light_background">#ffffffff</color>
+    <color name="cardview_shadow_end_color">#03000000</color>
+    <color name="cardview_shadow_start_color">#37000000</color>
 </resources>

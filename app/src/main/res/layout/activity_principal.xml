@@ -25,27 +25,31 @@
 
 </android.support.design.widget.AppBarLayout>
 
-
-<FrameLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include android:layout_width="match_parent"
+    <android.support.v7.widget.RecyclerView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/view_fragment_container"/>
+        android:padding="4dp"
+        android:visibility="visible"
+        android:scrollbars="vertical" />
+
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/fab_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom|center"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp"
         app:fab_addButtonColorNormal="@color/primaryColor"
         app:fab_addButtonColorPressed="@color/primaryLightColor"
         app:fab_addButtonSize="normal"
-        app:fab_labelStyle="@style/menu_labels_style"
-        app:fab_labelsPosition="left">
+        app:fab_labelStyle="@style/menu_labels_style">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_adicionar_oferta"
@@ -53,7 +57,8 @@
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/primaryColor"
             app:fab_icon="@drawable/icon_plus"
-            app:fab_title="Sugerir uma Oferta"/>
+            app:fab_title="Sugerir uma Oferta" />
+
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_lista_desejos"
             android:layout_width="wrap_content"
@@ -61,13 +66,11 @@
             app:fab_colorNormal="@color/primaryColor"
             app:fab_icon="@drawable/ic_wishlist_w"
             app:fab_size="normal"
-            app:fab_title="Lista de desejos"
-            />
+            app:fab_title="Lista de desejos" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
-
-</FrameLayout>
+</RelativeLayout>
 
 </LinearLayout>
     <fragment android:name="easypromo.com.easypromo.fragment.MenuNavegacaoFragment"
@@ -75,4 +78,6 @@
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 </android.support.v4.widget.DrawerLayout>

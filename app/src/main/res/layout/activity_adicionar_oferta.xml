@@ -1,39 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.AdicionarOfertaActivity">
 
-    <RelativeLayout android:theme="@style/ThemeOverlay.AppCompat.Light"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="105dp"
-            android:background="@color/gray2"
-            android:ems="10"
-            android:hint="Digite a URL"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="175dp"
-            android:text="Enviar" />
+            <TextView
+                android:id="@+id/txtInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/texto_adicionar_oferta"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray8"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtInfo"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfo"
+                tools:layout_editor_absoluteX="0dp" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/txtUrlOferta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="URL da oferta:"
+                android:textColor="@color/primaryDarkColor"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfo"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/etUrlOferta"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtUrlOferta"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="ex.: http://www.extra.com.br/produto/iphone-x"
+                android:inputType="textUri"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/primaryTextColor"
+                android:textColorHint="@color/primaryTextHintColor"
+                android:textSize="14sp"
+                android:theme="@style/EditTextTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUrlOferta" />
+
+            <TextView
+                android:id="@+id/txtNomeProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="Nome do produto:"
+                android:textColor="@color/primaryDarkColor"
+                app:layout_constraintTop_toBottomOf="@+id/etUrlOferta"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/etNomeProd"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtNomeProduto"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="ex.: Iphone X 128gb"
+                android:inputType="text|textNoSuggestions"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textSize="14sp"
+                android:theme="@style/EditTextTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNomeProduto" />
+
+            <TextView
+                android:id="@+id/txtMoeda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/spCategorias"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="R$"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPreco" />
+
+            <TextView
+                android:id="@+id/txtPreco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="Preço:"
+                android:textColor="@color/primaryDarkColor"
+                app:layout_constraintTop_toBottomOf="@+id/etNomeProd"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/etPreco"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtMoeda"
+                android:layout_toEndOf="@+id/txtMoeda"
+                android:ems="10"
+                android:hint="Informe o preço do produto"
+                android:inputType="numberDecimal"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColorHint="@color/primaryTextHintColor"
+                android:textSize="14sp"
+                android:theme="@style/EditTextTheme"
+                app:layout_constraintStart_toEndOf="@+id/txtMoeda"
+                app:layout_constraintTop_toBottomOf="@+id/txtPreco" />
+
+            <TextView
+                android:id="@+id/txtCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/spCategorias"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="Categoria:"
+                android:textColor="@color/primaryDarkColor"
+                app:layout_constraintTop_toBottomOf="@+id/etPreco"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <Spinner
+                android:id="@+id/spCategorias"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textAlignment="textStart"
+                android:theme="@style/SpinnerTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCategoria" />
+
+            <Button
+                android:id="@+id/btEnviarOferta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="35dp"
+                android:text="Enviar sugestão de oferta"
+                android:theme="@style/ButtonTheme"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivImagemProd"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/ivImagemProd"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/dark_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.026"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtImgProd"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/btImportar"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="172dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Importar"
+                android:theme="@style/ButtonTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.98"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtImgProd" />
+
+            <TextView
+                android:id="@+id/txtImgProd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="Imagem do produto:"
+                android:textColor="@color/primaryDarkColor"
+                app:layout_constraintTop_toBottomOf="@+id/spCategorias"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <Button
+                android:id="@+id/btCamera"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="172dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:text="Câmera"
+                android:theme="@style/ButtonTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btImportar" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
 </LinearLayout>
