@@ -200,27 +200,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="30"
                     android:textColor="@color/card_titl2"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btLike"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:background="#8fceec"
+                    app:srcCompat="@drawable/ic_thumb_up" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-                <ImageView
-                    android:id="@+id/card_like_icon"
-                    android:layout_width="@dimen/card_icon"
-                    android:layout_height="@dimen/card_icon"
-                    android:layout_marginLeft="@dimen/card_margin"
-                    android:layout_marginRight="@dimen/card_margin_r"
-                    android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:gravity="left"
-                    android:src="@drawable/ic_thumb_up"
-                    android:tint="@color/card_title" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

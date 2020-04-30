@@ -50,7 +50,10 @@ import java.util.UUID;
 import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.config.AcessoDatabase;
 import easypromo.com.easypromo.helper.Base64Custom;
+import easypromo.com.easypromo.helper.Utilidades;
 import easypromo.com.easypromo.model.Promocao;
+
+import static java.lang.String.format;
 
 public class AdicionarOfertaActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "AdicionarOfertaActivity";
@@ -63,13 +66,11 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
     private Button btCamera;
     private ImageView ivImagemSelecionada;
     private Button btEnviarOferta;
-    private double mProgressoDeUp = 0;
 
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private Uri imageUri;
     public Uri caminhoArquivo;
-    private StorageTask mUploadTask;
 
     private ArrayAdapter<String> categoriasAdapter;
     private DatabaseReference dbReference;
@@ -158,6 +159,7 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View v) {
+
         int id = v.getId();
         Intent intent;
 
@@ -227,13 +229,10 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
 
 
     private void uploadImage(){
-
         if (imageUri != null){
-
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading..");
+            progressDialog.setTitle("Enviando...");
             progressDialog.show();
-            //CRIA O NÓ no STORAGE, as imagens upadas pelo usuario corrente.
 
             String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
             StorageReference ref = storageReference.child(FIREBASE_IMAGE_STORAGE +"/"+ user_id + "/promo" + UUID.randomUUID() + ".png");
@@ -243,14 +242,15 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                           caminhoArquivo = taskSnapshot.getDownloadUrl();
-                            Log.d(TAG, "onSuccess: quero ver o que ta no :" + caminhoArquivo);
+                         String teste = caminhoArquivo.toString();
+                            Log.d(TAG, "onSuccess: " + caminhoArquivo.toString());
+                           cadastrar(caminhoArquivo.toString());
 
-                            cadastrar(caminhoArquivo.toString());
                             progressDialog.dismiss();
-                            Log.d(TAG, "onSuccess: quero ver o que ta no ééé :" + caminhoArquivo);
-                            Toast.makeText(AdicionarOfertaActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdicionarOfertaActivity.this, "Oferta enviada", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(AdicionarOfertaActivity.this, PrincipalActivity.class);
-                            startActivity(intent);
+                         //   finish();
+                          //  startActivity(intent);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
 
@@ -258,7 +258,7 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
                 public void onFailure(Exception e) {
 
                     progressDialog.dismiss();
-                    Toast.makeText(AdicionarOfertaActivity.this, "Failed "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdicionarOfertaActivity.this, "Falhou "+ e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -267,9 +267,13 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
                     double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
                             .getTotalByteCount());
 
-                    progressDialog.setMessage("Uploading "+(int)progress+"%");
+                    progressDialog.setMessage((int)progress+"% enviados");
                 }
             });
+        }
+        else{
+            Toast.makeText(AdicionarOfertaActivity.this, "Importar imagem ou tirar foto", Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 
@@ -285,9 +289,7 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
                 etNomeProd.getText().toString(),
                 Double.parseDouble(etPreco.getText().toString()),
                 categoriasAdapter.getItem(categoriasSpinner.getSelectedItemPosition()),
-                "", url);
-
-        Log.d(TAG, "cadastrar:  aqui " + url);
+                "0", url, 0);
 
         promocao.cadastrar();
     }
@@ -306,11 +308,7 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
         alertDialog.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
                 uploadImage();
-
-                Toast.makeText(AdicionarOfertaActivity.this, "Oferta enviada", Toast.LENGTH_SHORT)
-                        .show();
             }
         });
 

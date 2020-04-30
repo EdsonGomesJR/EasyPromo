@@ -1,6 +1,10 @@
 package easypromo.com.easypromo.activity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +53,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        if (!verificaConexao()){
+            falhaConexãoInternet();
+        }
 
         recuperarUsuarioLogado();
 
@@ -169,6 +177,38 @@ public class LoginActivity extends AppCompatActivity {
     private void abrirTelaPrincipal(){
         Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
+    }
+
+    private boolean verificaConexao() {
+        boolean conectado;
+        ConnectivityManager conectivtyManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (conectivtyManager.getActiveNetworkInfo() != null
+                && conectivtyManager.getActiveNetworkInfo().isAvailable()
+                && conectivtyManager.getActiveNetworkInfo().isConnected()) {
+            conectado = true;
+        } else {
+            conectado = false;
+        }
+        return conectado;
+    }
+
+    private void falhaConexãoInternet(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this,
+                R.style.AlertDialogTheme);
+        alertDialog.setIcon(R.drawable.ic_signal_wifi_off);
+        alertDialog.setTitle("Falha de conexão com a internet");
+        alertDialog.setMessage("Para acessar o aplicativo verifique sua conexão com a internet");
+        alertDialog.setCancelable(false);
+
+        alertDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+
+        alertDialog.create();
+        alertDialog.show();
     }
 }

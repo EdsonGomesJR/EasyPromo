@@ -27,31 +27,30 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     //Firebase
-
     implementation 'com.google.firebase:firebase-auth:11.8.0'
     implementation 'com.google.firebase:firebase-storage:11.8.0'
     implementation 'com.google.firebase:firebase-database:11.8.0'
 
-    //FirebaseUI FirebaseRecyclerViewAdapter
-
+    //FirebaseUI  para utilizar o FirebaseRecyclerViewAdapter
     implementation 'com.firebaseui:firebase-ui:3.2.1'
 
 
 
     implementation 'com.android.support:design:26.1.0'
 
-    //FloatinActionButton
+    //FloatinActionButton - https://github.com/fstech/sell-android-floating-action-button
     implementation 'com.getbase:floatingactionbutton:1.10.1'
-    //Circle Image View
+    //Circle Image View - https://github.com/hdodenhof/CircleImageView
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    //Universal Image Loader
+
+    //Universal Image Loader - https://github.com/nostra13/Android-Universal-Image-Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'com.android.support:cardview-v7:26.1.0'
 
-    //Picasso
+    //Picasso - https://github.com/square/picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
-    //EventBus
+    //EventBus - https://square.github.io/otto/
     implementation 'com.squareup:otto:1.3.8'
 
     implementation 'com.android.support:support-annotations:27.1.1'

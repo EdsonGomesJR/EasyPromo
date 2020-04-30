@@ -174,9 +174,6 @@ public class MenuNavegacaoFragment extends Fragment {
                 public void onCancelled(DatabaseError databaseError) { }
             });
         }
-        else{
-            Toast.makeText(getActivity(),"Erro ao obter sessão do usuário", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void abrirTelaAdmin(){

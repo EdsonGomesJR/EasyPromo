@@ -30,12 +30,12 @@ import easypromo.com.easypromo.R;
 import easypromo.com.easypromo.activity.IrLojaActivity;
 import easypromo.com.easypromo.activity.PrincipalActivity;
 import easypromo.com.easypromo.helper.Base64Custom;
+import easypromo.com.easypromo.helper.Utilidades;
 import easypromo.com.easypromo.model.Promocao;
 import easypromo.com.easypromo.model.Usuario;
 
 public  class AdminPromocaoAdapter extends RecyclerView.Adapter<AdminPromocaoAdapter.PromocaoViewHolder> {
 
-    private static final String TAG = "AdminPromocaoAdapter";
     private Context mContext;
     private List<Promocao> mPromocoes;
 
@@ -52,8 +52,6 @@ public  class AdminPromocaoAdapter extends RecyclerView.Adapter<AdminPromocaoAda
         public ImageView imgOferta;
         public TextView mUrlOfertaVindaLoja;
 
-
-        //public  CardView mCard;
         public Button btnIrLoja;
         public ImageButton btAprove;
         public ImageButton btReprove;
@@ -81,9 +79,9 @@ public  class AdminPromocaoAdapter extends RecyclerView.Adapter<AdminPromocaoAda
     public void onBindViewHolder(PromocaoViewHolder holder, int position) {
         final Promocao promocaoCorrente = mPromocoes.get(position);
 
-        holder.mUrlOfertaVindaLoja.setText(promocaoCorrente.getUrl());
+        holder.mUrlOfertaVindaLoja.setText(Utilidades.enderecoLoja(promocaoCorrente.getUrl()));
         holder.mTitulo.setText(promocaoCorrente.getNome());
-        holder.mPreco.setText("R$ " + precoFormatado(promocaoCorrente.getPreco()));
+        holder.mPreco.setText("R$ " + Utilidades.precoFormatado(promocaoCorrente.getPreco()));
         Picasso.with(mContext)
                 .load(promocaoCorrente.getImagem_path())
                 .placeholder(R.drawable.banner)
@@ -105,6 +103,7 @@ public  class AdminPromocaoAdapter extends RecyclerView.Adapter<AdminPromocaoAda
             public void onClick(View view) {
 
                 promocaoCorrente.aprovar();
+                mPromocoes.clear();
             }
         });
 
@@ -113,28 +112,15 @@ public  class AdminPromocaoAdapter extends RecyclerView.Adapter<AdminPromocaoAda
             public void onClick(View view) {
 
                 promocaoCorrente.recusar();
+                mPromocoes.clear();
             }
         });
 
     }
 
-
     @Override
     public int getItemCount() {
         return mPromocoes.size();
     }
-
-
-    private String precoFormatado(Double valor){
-        Locale locale = new Locale("pt", "BR");
-        NumberFormat nf = NumberFormat.getInstance(locale);
-        nf.setMaximumFractionDigits(2);
-        return nf.format(valor);
-    }
-
-
-
-
-
 }
 

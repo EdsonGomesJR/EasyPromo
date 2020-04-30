@@ -81,27 +81,28 @@
                 android:id="@+id/menu_nv_admin"
                 style="@style/drawerItemTheme"
                 android:drawableLeft="@drawable/ic_admin"
-                android:text="Administração"
+                android:text=" Administração"
                 android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/menu_nv_add"
-                android:text="Adicionar"
+                style="@style/drawerItemTheme"
                 android:drawableLeft="@drawable/ic_add_box"
-                style="@style/drawerItemTheme" />
-
-            <TextView
-                android:id="@+id/menu_nv_categorias_lojas"
-                android:text="Categorias e Lojas"
-                android:drawableLeft="@drawable/ic_filter_list"
-                style="@style/drawerItemTheme" />
-
+                android:text=" Sugerir uma oferta " />
 
             <TextView
                 android:id="@+id/menu_nv_lista_desejos"
-                android:text="Lista de Desejos"
+                style="@style/drawerItemTheme"
                 android:drawableLeft="@drawable/ic_action_heart"
-                style="@style/drawerItemTheme" />
+                android:text="Lista de Desejos" />
+
+            <TextView
+                android:id="@+id/menu_nv_categorias_lojas"
+                style="@style/drawerItemTheme"
+                android:drawableLeft="@drawable/ic_filter_list"
+                android:text=" Categorias e Lojas"
+                android:visibility="invisible" />
+
 
             <View
                 android:layout_width="match_parent"

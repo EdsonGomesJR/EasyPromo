@@ -16,7 +16,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import easypromo.com.easypromo.R;
@@ -38,7 +43,6 @@ public class PromocaoFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,32 +56,32 @@ public class PromocaoFragment extends Fragment {
         mPromocaoList = new ArrayList<>();
 
         dbReference = FirebaseDatabase.getInstance().getReference("promocoes");
-        dbReference.keepSynced(true);
 
         dbReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                mPromocaoList.clear();
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
                     Promocao promocao  = postSnapshot.getValue(Promocao.class);
                     promocao.getUrl();
-                    mPromocaoList.add(promocao);
 
+                    if (promocao.getStatus().equals("0")){
+                        mPromocaoList.add(promocao);
+                    }
                 }
 
+                Collections.sort(mPromocaoList);
                 mAdapter = new AdminPromocaoAdapter(getActivity(),mPromocaoList);
                 mRecyclerView.setAdapter(mAdapter);
-
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getActivity(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(getActivity(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
         return view;
     }
-
 }

@@ -1,4 +1,32 @@
 <resources>
+    <!-- Banco de Dados do Firebase-->
+    <string name="db_usuarios">usuarios</string>
+    <string name="db_promocoes">promocoes</string>
+    <string name="db_categorias">categorias</string>
+
+<!-- Nó Usuario -->
+    <string name="campo_user_ativo">ativo</string>
+    <string name="campo_user_datacadastro">dataCadastro</string>
+    <string name="campo_user_email">email</string>
+    <string name="campo_user_tipo_perfil">tipoPerfil</string>
+
+ <!-- Nó Promoções -->
+    <string name="campo_promo_categorias">categorias</string>
+    <string name="campo_promo_data_cadastro">dataCadastro</string>
+    <string name="campo_promo_id">id</string>
+    <string name="campo_promo_image_path">image_path</string>
+    <string name="campo_promo_likes">likes</string>
+    <string name="campo_promo_nome">nome</string>
+    <string name="campo_promo_preco">preco</string>
+    <string name="campo_promo_qtdCurtidas">qtdCurtidas</string>
+    <string name="campo_promo_status">status</string>
+    <string name="campo_promo_url">url</string>
+
+
+
+ <!-- Nó Categorias -->
+    <string name="campo_categoria_nome_categoria">nomeCategoria</string>
+
     <!-- Configuração do aplicativo -->
     <string name="app_name">EasyPromo</string>
 
@@ -42,7 +70,7 @@
     <!-- Exceções de login -->
     <string name="loginException_InvalidUser">E-mail informado não é cadastrado</string>
     <string name="loginException_InvalidCredentials">Senha informada está errada</string>
-    <string name="loginException_Default">Erro ao cadastrar usuário. Tente novamente</string>
+    <string name="loginException_Default">Erro ao efetuar login. Tente novamente</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

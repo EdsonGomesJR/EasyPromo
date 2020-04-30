@@ -50,7 +50,7 @@ public class Usuario {
     // endregion
 
     // region Getters & Setters
-    @Exclude
+
     public String getId() {
         return id;
     }
