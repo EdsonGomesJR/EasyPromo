@@ -21,10 +21,11 @@ Para desenvolver a aplicação, utilizamos o Android Studio.
 Para o banco de dados, utilzamos o Firebase.
 * [Firebase](https://firebase.google.com/?hl=pt-br)
 
-  * Veja como adicionar o firebase ao seu projeto:  https://firebase.google.com/docs/android/setup
   
 # Instruções
 
+ * Veja como adicionar o firebase ao seu projeto em:  https://firebase.google.com/docs/android/setup
+ 
 1 - Project 1 - Open the Project in your android studio; 2 - !!!!IMPORTANT!!!! Change the Package Name. You can check how to do that here (https://stackoverflow.com/questions/16804093/android-studio-rename-package)
 
 2 - Firebase Panel 1 - Create Firebase Project (https://console.firebase.google.com/); 2 - import the file google-service.json into your project as the instructions say; 3 - Change Pay Plan to either Flame or Blaze; 4 - Go to Firebase -> Registration and activate Login/Registrtion with email 5 - Go to Firebase -> storage and activate it;
