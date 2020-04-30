@@ -5,8 +5,6 @@
   <img src= "app/src/main/res/drawable/banner.png" width="160">
 </h1>
 
-
-
 # Descrição
 O EasyPromo é um aplicativo de ofertas, feito em Android, no qual os usuários publicam as promoções encontradas, assim disseminando qual promoção é ou não vantajosa para outro usuário, deste modo tornando o fluxo de opções de compras para diversos tipos produtos, constante.
 
@@ -21,14 +19,22 @@ Para desenvolver a aplicação, utilizamos o Android Studio.
 Para o banco de dados, utilzamos o Firebase.
 * [Firebase](https://firebase.google.com/?hl=pt-br)
 
-  
+    
 # Instruções
 
  * Veja como adicionar o firebase ao seu projeto em:  https://firebase.google.com/docs/android/setup
  
-1 - Project 1 - Open the Project in your android studio; 2 - !!!!IMPORTANT!!!! Change the Package Name. You can check how to do that here (https://stackoverflow.com/questions/16804093/android-studio-rename-package)
+* Importando o Projeto  
+  * Ao abrir o projeto no Android Studio lembre-se de  **mudar o nome do pacote (package)**
+  * [Como mudar o nome do pacote](https://stackoverflow.com/questions/16804093/android-studio-rename-package)
 
-2 - Firebase Panel 1 - Create Firebase Project (https://console.firebase.google.com/); 2 - import the file google-service.json into your project as the instructions say; 3 - Change Pay Plan to either Flame or Blaze; 4 - Go to Firebase -> Registration and activate Login/Registrtion with email 5 - Go to Firebase -> storage and activate it;
+* No console do Firebase 
+  * Criar um Projeto no Firebase (https://console.firebase.google.com/);
+  * Importar o arquivo google-service.json para o seu projeto, como é demonstrado nas instruções 
+  * Dentro do projeto criado clique em Authenticação (lado esquerdo), após clicar em Sign in Method e habilitar a autenticação com email/senha.
+  ![easyjpg](https://user-images.githubusercontent.com/36476485/80742006-055db480-8af1-11ea-8565-bb6bff9549ba.JPG)
+  
+  * Em seu projeto ir em Strorage e ativa-lo.
 
 # Dependências
 Algumas dependências utilizadas:
@@ -40,6 +46,7 @@ Algumas dependências utilizadas:
     
 # Execução do Aplicativo
 
+## Cadastro
 <img src="https://media.giphy.com/media/U29lDd1JLwjjxefBJt/giphy.gif">
 
 # Observações
