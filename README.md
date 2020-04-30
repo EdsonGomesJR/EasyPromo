@@ -32,6 +32,7 @@ Para o banco de dados, utilzamos o Firebase.
   * Criar um Projeto no Firebase (https://console.firebase.google.com/);
   * Importar o arquivo google-service.json para o seu projeto, como é demonstrado nas instruções 
   * Dentro do projeto criado clique em Authenticação (lado esquerdo), após clicar em Sign in Method e habilitar a autenticação com email/senha.
+  
   ![easyjpg](https://user-images.githubusercontent.com/36476485/80742006-055db480-8af1-11ea-8565-bb6bff9549ba.JPG)
   
   * Em seu projeto ir em Strorage e ativa-lo.
@@ -46,8 +47,14 @@ Algumas dependências utilizadas:
     
 # Execução do Aplicativo
 
-## Cadastro
-<img src="https://media.giphy.com/media/U29lDd1JLwjjxefBJt/giphy.gif">
+<figure >
+  <figcaption>
+    </figcaption>
+   <p align="center">  <img src="https://media.giphy.com/media/U29lDd1JLwjjxefBJt/giphy.gif"
+    width="136" height="200"
+    alt="Torre Eiffel">
+
+</figure>
 
 # Observações
 <h4 align="center"> 
