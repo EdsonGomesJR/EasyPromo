@@ -46,15 +46,13 @@ Algumas dependências utilizadas:
    * [Picasso](https://github.com/square/picasso) 
     
 # Execução do Aplicativo
+ 
+ ## Login
 
-<figure >
-  <figcaption>
-    </figcaption>
-   <p align="center">  <img src="https://media.giphy.com/media/U29lDd1JLwjjxefBJt/giphy.gif"
-    width="136" height="200"
-    alt="Torre Eiffel">
+ <img src="https://media.giphy.com/media/U29lDd1JLwjjxefBJt/giphy.gif">
+ 
 
-</figure>
+
 
 # Observações
 <h4 align="center"> 
