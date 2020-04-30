@@ -47,11 +47,15 @@ Algumas dependências utilizadas:
     
 # Execução do Aplicativo
  
- ## Login
+ ### Cadastro
 
- <img src="https://media.giphy.com/media/U29lDd1JLwjjxefBJt/giphy.gif">
+ <img src="https://media.giphy.com/media/McPWxeVVFQSKhtzGSp/giphy.gif">
  
+### Login
 
+### Cadastrar Oferta
+
+### Aprovando a Oferta (Admin)
 
 
 # Observações
