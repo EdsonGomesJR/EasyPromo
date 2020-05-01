@@ -1,6 +1,7 @@
 package easypromo.com.easypromo.helper;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -25,11 +26,18 @@ public class Utilidades {
     }
 
     public static String enderecoLoja(String url){
+
+        String urlSemInter = url.replace("?", "");
+
         int posicaoHttp = url.indexOf("//");
+
         String urlSemBarra = url.replace("//","");
+
+
         int posicaoNomeLoja = urlSemBarra.indexOf("/");
 
         return url.substring(posicaoHttp+2, posicaoNomeLoja+2);
+
     }
 
     public static String precoFormatado(Double valor){

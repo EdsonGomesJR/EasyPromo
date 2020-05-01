@@ -242,15 +242,14 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                           caminhoArquivo = taskSnapshot.getDownloadUrl();
-                         String teste = caminhoArquivo.toString();
-                            Log.d(TAG, "onSuccess: " + caminhoArquivo.toString());
+
                            cadastrar(caminhoArquivo.toString());
 
                             progressDialog.dismiss();
                             Toast.makeText(AdicionarOfertaActivity.this, "Oferta enviada", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(AdicionarOfertaActivity.this, PrincipalActivity.class);
-                         //   finish();
-                          //  startActivity(intent);
+                             finish();
+                           startActivity(intent);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
 
@@ -284,7 +283,7 @@ public class AdicionarOfertaActivity extends AppCompatActivity implements View.O
 
     private void cadastrar(String url ) {
         promocao = new Promocao(
-                Base64Custom.codificarBase64(etUrlOferta.getText().toString()),
+                Base64Custom.codificarBase64(etUrlOferta.getText().toString().replace("?", "")),
                 etUrlOferta.getText().toString(),
                 etNomeProd.getText().toString(),
                 Double.parseDouble(etPreco.getText().toString()),
