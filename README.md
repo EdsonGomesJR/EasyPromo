@@ -1,9 +1,10 @@
 
-
+ 
 <h1 align="center">
-
   <img src= "app/src/main/res/drawable/banner.png" width="160">
 </h1>
+
+
 
 # Descrição
 O EasyPromo é um aplicativo de ofertas, feito em Android, no qual os usuários publicam as promoções encontradas, assim disseminando qual promoção é ou não vantajosa para outro usuário, deste modo tornando o fluxo de opções de compras para diversos tipos produtos, constante.
@@ -52,10 +53,17 @@ Algumas dependências utilizadas:
  <img src="https://media.giphy.com/media/McPWxeVVFQSKhtzGSp/giphy.gif">
  
 ### Login
+<img src="https://user-images.githubusercontent.com/36476485/80773743-2f36cb80-8b31-11ea-9336-a678948c8bb0.gif" width="270">
+
 
 ### Cadastrar Oferta
+<img src="https://media.giphy.com/media/dUSkAvb1bfi7yV8KTt/giphy.gif">
 
 ### Aprovando a Oferta (Admin)
+<img src="https://user-images.githubusercontent.com/36476485/80774182-a15be000-8b32-11ea-90c9-0555a9e431a0.gif" width="270">
+
+### Navegando até o site da oferta
+<img src="https://media.giphy.com/media/iJaYDiIL7a6HgB3HcI/giphy.gif">
 
 
 # Observações
