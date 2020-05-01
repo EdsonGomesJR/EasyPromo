@@ -1,11 +1,18 @@
 
- 
 <p align="center">
-  <img src= "app/src/main/res/drawable/banner.png" width="160">
-</p>
+  <img  src="app/src/main/res/drawable/banner.png" width="160" >
 
+ </p>
+ <p align="center">
  
- 
+<img alt="badge" src="https://img.shields.io/badge/version-dev-blue">
+  <a href="https://www.linkedin.com/in/edsoongomes/">
+    <img alt="Made by Edson" src="https://img.shields.io/badge/made%20by-Edson%20Gomes-blue">
+  </a>
+   <a href="https://github.com/edsongomesjr/EasyPromo/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/edsongomesjr/EasyPromo?style=social">
+  </a>
+</p>
  
 # Descrição
 O EasyPromo é um aplicativo de ofertas, feito em Android, no qual os usuários publicam as promoções encontradas, assim disseminando qual promoção é ou não vantajosa para outro usuário, deste modo tornando o fluxo de opções de compras para diversos tipos produtos, constante. 
@@ -71,4 +78,7 @@ Algumas dependências utilizadas:
 <h4 align="center"> 
   <h4> ⚠ Esta não é a versão final do aplicativo. Apenas demonstração de suas funcionalidades. ⚠ </h4>
  <p align="justify"> O aplicativo em sua versão final, foi desenvolvido e apresentado como Trabalho de Conclusão de Curso (TCC), na graduação de Engenharia da Computação pela ETEP Faculdades, em  Junho de 2018, por Edson Gomes e Marcelo Marassi. </p>
+ 
   </h4>
+  <p align="center">  Feito com 💙 </p>
+ 
