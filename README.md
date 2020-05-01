@@ -1,13 +1,14 @@
 
  
-<h1 align="center">
+<p align="center">
   <img src= "app/src/main/res/drawable/banner.png" width="160">
-</h1>
+</p>
 
-
-
+ 
+ 
+ 
 # Descrição
-O EasyPromo é um aplicativo de ofertas, feito em Android, no qual os usuários publicam as promoções encontradas, assim disseminando qual promoção é ou não vantajosa para outro usuário, deste modo tornando o fluxo de opções de compras para diversos tipos produtos, constante.
+O EasyPromo é um aplicativo de ofertas, feito em Android, no qual os usuários publicam as promoções encontradas, assim disseminando qual promoção é ou não vantajosa para outro usuário, deste modo tornando o fluxo de opções de compras para diversos tipos produtos, constante. 
 
 # Desafios
 Conseguir fazer uma aplicação funcional no prazo de 03 meses partindo do zero, tanto na parte de familiaridade com o ambiente de desenvolvimento Android quanto nos conhecimentos que acercam essa tecnologia, ou seja, aprendendo e aplicando os conceitos na prática. Um fator importate foi a linguagem Java utiilizada para a programação da aplicação, pois a mesma foi nos apresentada durante a graduação.
